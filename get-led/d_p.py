@@ -23,17 +23,17 @@ while True:
     if GPIO.input(up) and GPIO.input(dn):
         while True:
             GPIO.output(leds, 255)
-            if GPIO.input(up) and GPIO.input(dn):
-                break
-    if GPIO.input(up):
+            num = 255
+            
+    elif GPIO.input(up):
         num += 1
         print(num,d2b(num))
         if num < 0:
             num = 0
-        elif num > 256:
+        elif num > 255:
             num = 0
         time.sleep(sleep_time)
-    if GPIO.input(dn):
+    elif GPIO.input(dn):
         num -= 1
         print(num,d2b(num))
         if num < 0:
